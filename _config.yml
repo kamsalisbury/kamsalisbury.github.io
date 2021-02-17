@@ -8,6 +8,11 @@ name: Kam Salisbury
 # Short bio or description (displayed in the header)
 description: Azure Cloud, PowerShell and Tech Notes
 
+# SEO meta items
+# author: Kam Salisbury # Set in /includes/meta.html to use site name
+keywords: Kam Salisbury, Kam, Salisbury, Azure Cloud, PowerShell and Tech Notes
+canonical: https://www.kamsalisbury.work
+
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/kamsalisbury/kamsalisbury.github.io/master/images/kam.jpg
 
