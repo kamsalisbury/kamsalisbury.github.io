@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <section class="section"><!-- <div class="wrapper-masthead"> -->
+    <section class="section"><!-- <div class="wrapper-masthead"> --><!-- Planning to convert this section to Bulma Nav bar https://bulma.io/documentation/components/navbar/ -->
       <div class="container is-fluid">
         <div class="columns"><!-- <header class="masthead clearfix"> -->
           <div class="column">
@@ -42,7 +42,9 @@
 
     <section class="section">
       <div id="main" role="main" class="container is-fluid">
-        {{ content }}
+        <div class="content">
+          {{ content }}
+        </div>
       </div>
     </section>
 
