@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
+    <section class="section"><!-- <div class="wrapper-masthead"> -->
       <div class="container">
         <header class="masthead clearfix">
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
@@ -32,19 +32,21 @@
           </nav>
         </header>
       </div>
-    </div>
+    </section><!-- </div> -->
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+    <section class="section">
+      <div id="main" role="main" class="container">
+        {{ content }}
+      </div>
+    </section>
 
-    <div class="wrapper-footer">
+    <section class="section"><!-- <div class="wrapper-footer"> -->
       <div class="container">
         <footer class="footer">
           {% include svg-icons.html %}
         </footer>
       </div>
-    </div>
+    </section><!-- </div> -->
 
     {% include analytics.html %}
   </body>
