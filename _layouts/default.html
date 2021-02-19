@@ -21,9 +21,14 @@
         <div class="navbar-brand">
           <a class="navbar-item" href="{{ site.baseurl }}/">
             <figure class="image is-64x64">
-              <img src="{{ site.avatar }}" />
+              <img src="{{ site.avatar }}" alt="{{ site.name }}"/>
             </figure>
           </a>
+
+          <h4 class="navbar-item">
+            {{ site.description }}
+          </h4>
+
       
           <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
@@ -32,7 +37,7 @@
           </a> -->
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <!-- <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
             <a class="navbar-item" href="{{ site.baseurl }}/">
               {{ site.name }}
@@ -40,7 +45,7 @@
       
             <h4 class="navbar-item">
               {{ site.description }}
-            </h4>
+            </h4> -->
       
             <!-- <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
@@ -63,7 +68,7 @@
                 </a>
               </div>
             </div> -->
-          </div>
+          <!-- </div> -->
       
           <!-- <div class="navbar-end">
             <div class="navbar-item">
