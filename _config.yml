@@ -1,5 +1,7 @@
 #
 # This file contains configuration flags to customize your site
+# For additional options see https://docs.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll
+# and https://jekyllrb.com/docs/configuration/
 #
 
 # Name of your site (displayed in the header)
@@ -74,8 +76,8 @@ kramdown:
     css_class: 'highlight'
 
 # Set the Sass partials directory, as we're using @imports
-sass:
-  style: :expanded # You might prefer to minify using :compressed
+#sass:
+#  style: :expanded # You might prefer to minify using :compressed
 
 # Use the following plug-ins
 gems:
