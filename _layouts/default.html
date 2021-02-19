@@ -8,105 +8,24 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <!-- <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" /> Commented out to test Bulma implementation -->
-    <!-- <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" /> Moved to meta.html -->
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
-    <section class="section"><!-- <div class="wrapper-masthead"> --><!-- Planning to convert this section to Bulma Nav bar https://bulma.io/documentation/components/navbar/ -->
+    <section class="section">
       <nav class="navbar" role="navigation" aria-label="main navigation"> <!-- Bulma NavBar https://bulma.io/documentation/components/navbar/ -->
         <div class="navbar-brand">
           <a class="navbar-item" href="{{ site.baseurl }}/">
-            <figure class="image is-64x64">
-              <img src="{{ site.avatar }}" alt="{{ site.name }}"/>
+            <figure class="image is-128x128">
+              <img class="is-rounded" src="{{ site.avatar }}" alt="{{ site.name }}"/>
             </figure>
           </a>
-
           <h4 class="navbar-item">
-            {{ site.name }} ~ {{ site.description }}
+            {{ site.name }} ~ {{ site.description }} <!-- Using just navbar brand to keep display simple and brief, no hamburger on touch -->
           </h4>
-
-      
-          <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a> -->
         </div>
-      
-        <!-- <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="{{ site.baseurl }}/">
-              {{ site.name }}
-            </a>
-      
-            <h4 class="navbar-item">
-              {{ site.description }}
-            </h4> -->
-      
-            <!-- <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div> -->
-          <!-- </div> -->
-      
-          <!-- <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div> -->
         </div>
       </nav>
-
-      <!-- <div class="container is-fluid"> -->
-        <!-- <div class="columns"> --><!-- <header class="masthead clearfix"> -->
-          <!-- <div class="column">
-            <figure class="image is-64x64">
-              <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-            </figure>
-          </div>
-          <div class="column">
-            <div class="site-info">
-              <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-              <p class="site-description">{{ site.description }}</p>
-            </div>
-          </div>
-          <div class="column">
-            <nav>
-              <a href="{{ site.baseurl }}/">Blog</a> -->
-              <!-- <a href="{{ site.baseurl }}/about">About</a> -->
-            <!-- </nav>
-          </div> -->
-        <!-- </div> --><!-- </header> -->
-      <!-- </div> -->
-    </section><!-- </div> -->
+    </section>
 
     <section class="section">
       <div id="main" role="main" class="container is-fluid">
@@ -116,7 +35,7 @@
       </div>
     </section>
 
-    <section class="section"><!-- <div class="wrapper-footer"> -->
+    <section class="section">
       <div class="container is-fluid">
         <footer class="footer">
           <div class="content has-text-centered">
@@ -124,7 +43,7 @@
           </div>
         </footer>
       </div>
-    </section><!-- </div> -->
+    </section>
 
     {% include analytics.html %}
   </body>
