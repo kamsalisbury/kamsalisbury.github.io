@@ -17,9 +17,70 @@
 
   <body>
     <section class="section"><!-- <div class="wrapper-masthead"> --><!-- Planning to convert this section to Bulma Nav bar https://bulma.io/documentation/components/navbar/ -->
-      <div class="container is-fluid">
-        <div class="columns"><!-- <header class="masthead clearfix"> -->
-          <div class="column">
+      <nav class="navbar" role="navigation" aria-label="main navigation"> <!-- Bulma NavBar https://bulma.io/documentation/components/navbar/ -->
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{ site.baseurl }}/">
+            <img src="{{ site.avatar }}" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="{{ site.baseurl }}/">
+              {{ site.name }}
+            </a>
+      
+            <a class="navbar-item">
+              {{ site.description }}
+            </a>
+      
+            <!-- <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div> -->
+          </div>
+      
+          <!-- <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </nav>
+
+      <!-- <div class="container is-fluid"> -->
+        <!-- <div class="columns"> --><!-- <header class="masthead clearfix"> -->
+          <!-- <div class="column">
             <figure class="image is-64x64">
               <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
             </figure>
@@ -32,12 +93,12 @@
           </div>
           <div class="column">
             <nav>
-              <a href="{{ site.baseurl }}/">Blog</a>
+              <a href="{{ site.baseurl }}/">Blog</a> -->
               <!-- <a href="{{ site.baseurl }}/about">About</a> -->
-            </nav>
-          </div>
-        </div><!-- </header> -->
-      </div>
+            <!-- </nav>
+          </div> -->
+        <!-- </div> --><!-- </header> -->
+      <!-- </div> -->
     </section><!-- </div> -->
 
     <section class="section">
