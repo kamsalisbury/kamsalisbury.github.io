@@ -20,14 +20,16 @@
       <nav class="navbar" role="navigation" aria-label="main navigation"> <!-- Bulma NavBar https://bulma.io/documentation/components/navbar/ -->
         <div class="navbar-brand">
           <a class="navbar-item" href="{{ site.baseurl }}/">
-            <img src="{{ site.avatar }}" width="112" height="28">
+            <figure class="image is-64x64">
+              <img src="{{ site.avatar }}" />
+            </figure>
           </a>
       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </a> -->
         </div>
       
         <div id="navbarBasicExample" class="navbar-menu">
@@ -36,9 +38,9 @@
               {{ site.name }}
             </a>
       
-            <a class="navbar-item">
+            <h4 class="navbar-item">
               {{ site.description }}
-            </a>
+            </h4>
       
             <!-- <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
