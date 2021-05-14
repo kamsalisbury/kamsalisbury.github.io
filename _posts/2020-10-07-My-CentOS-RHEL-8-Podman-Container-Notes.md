@@ -26,14 +26,14 @@ sudo podman pull docker.io/pihole/pihole
 sudo podman run -dt --name pihole -p 53:53/udp -p 80:80/tcp -e SERVERIP=yourcentosip  -e DNS1=149.112.112.112 -e DNS2=9.9.9.9 -e TZ=America/New_York -v pihole:/etc/pihole:Z -e WEBPASSWORD=piholewebadminpassword docker.io/pihole/pihole
 # Stop the container temporarily
 sudo podman stop pihole
-# Create the systemd configuration so pihole container can run as a systemd service upon boot
+# Create the systemd configuration so pihole container can run as a systemd service upon boot. May have to 'sudo su' to execute the next line as root
 sudo podman generate systemd pihole > /etc/systemd/system/pihole-container.service
 # Refresh systemd
 sudo systemctl daemon-reload
 # Enable pihole container to as auto run as a systemd service
 sudo systemctl enable pihole-container
 # Start pihole as a container from systemd
-sudo systemtcl start pihole-container
+sudo systemctl start pihole-container
 ```
 
 ## Workflow to update the pihole as a container image
