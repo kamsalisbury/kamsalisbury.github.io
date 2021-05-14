@@ -44,3 +44,8 @@ enabled = true
 (It took less than an hour for the host to appear in Azure, then two hours more to become available in Azure Automation Update Management)
 12. Implement ssh key authentication and then install and configure [Duo](https://duo.com/docs/duounix) or [other 2FA](https://github.com/CERN-CERT/pam_2fa)
 13. See [my notes about running containers via podman.](https://kamsalisbury.github.io/My-CentOS-8-Podman-Container-Notes/)
+
+## Redhat Enterprise Linux KVM HV2019 Specific Notes
+1. HV2019 choose sata bus for disks or load non-WHQL signed virtio drivers, pick one
+2. Add a dedicated NIC by adding a Direct Attachment NIC, e100e PCI. In REHL set the same NIC to shared
+3. When using USB storage, establish the storage pool first, then install to that pool
