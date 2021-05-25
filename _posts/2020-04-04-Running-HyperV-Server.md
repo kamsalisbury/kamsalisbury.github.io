@@ -7,7 +7,7 @@
 [Windows Server 2012 Server Core - Part 5: Tools](https://4sysops.com/archives/windows-server-2012-server-core-part-5-tools/) also
 [Manage Hyper-V Server 2016 or 2019 in a workgroup using Windows 10 Hyper-V Manager… in 13 Simple Steps](https://theserverplaypen.wordpress.com/2018/01/23/manage-hyper-v-server-2012r22016-in-a-workgroup-with-windows-10-hyper-v-manager-in-13-simple-steps/) as well as
 [Manage Windows Server 2019 with Admin Center, PowerShell Core, and sconfig](https://4sysops.com/archives/manage-windows-server-2019-with-admin-center-powershell-core-and-sconfig/)
-2. From the PowerShell prompt (or commandline), `notepad *filename*` still works.
+2. From the PowerShell prompt (or commandline), `notepad <filename>` still works.
 3. You do not need to install Hyper-V in a domain (unless you have a large domain with many physical hosts, please consider that it may be more sustainable and possibly more secure to not install Hyper-V hosts in a domain) [https://timothygruber.com/hyper-v-2/remotely-managing-hyper-v-server-in-a-workgroup-or-non-domain/](https://timothygruber.com/hyper-v-2/remotely-managing-hyper-v-server-in-a-workgroup-or-non-domain/)
 Also, the powershell cmdlet "Enable-PSRemoting -SkipNetworkProfileCheck" will sidestep an issue concerning Public network types if you have HyperV installed on the Windows 10 PC.
 4. The best way to protect from catastrophic disk failure is to use RAID1, disk mirrors. Creating a disk mirror from PowerShell prompt (or commandline);
@@ -63,3 +63,54 @@ exit
 ```
 13. CentOS guest info [https://www.altaro.com/hyper-v/centos-linux-hyper-v/](https://www.altaro.com/hyper-v/centos-linux-hyper-v/)
 14. HyperV Server Hardware info [https://www.altaro.com/hyper-v/hardware-tweaks-hyper-v-performance/](https://www.altaro.com/hyper-v/hardware-tweaks-hyper-v-performance/)
+
+## Offsite Non-Domain Joined Replica
+HyperV 2012-16-19 all support certificate authentication with another HyperV server configured to receive the VM replication. Web searches will give you results with step by step procedures to follow and you should review them. Generating the certificates is not documented very well so I am sharing my script used on HyperV 2019.
+```
+# First, On the offsite HV2019:
+# Create the root cert that each host uses to validate if the certificate is good
+New-SelfSignedCertificate -DnsName "HV Replica Root CA" -CertStoreLocation Cert:\LocalMachine\My -KeyLength 4096 -Hash SHA256 -KeyFriendlyName "HV Replica Root CA" -FriendlyName "HV Replica Root CA" -NotAfter "2031-12-31 23:59:59" -NotBefore "2021-05-23 00:00:00" -KeyUsage CertSign,CRLSign,DigitalSignature
+# Create signed host certs
+$RootCert = ( Get-ChildItem Cert:\LocalMachine\My | Where -Prop Subject -eq "CN=HV Replica Root CA" )
+New-SelfSignedCertificate -DnsName "office-HVserver-1.domain.tld","office-HVserver-1" -CertStoreLocation Cert:\LocalMachine\My -KeyLength 4096 -Hash SHA256 -KeyFriendlyName "office-HVserver-1 HV Replication" -FriendlyName "office-HVserver-1 HV Replication" -NotAfter "2031-12-31 23:59:59" -NotBefore "2021-05-23 00:00:00" -Signer $RootCert
+New-SelfSignedCertificate -DnsName "office-HVserver-2.domain.tld","office-HVserver-2" -CertStoreLocation Cert:\LocalMachine\My -KeyLength 4096 -Hash SHA256 -KeyFriendlyName "office-HVserver-2 HV Replication" -FriendlyName "office-HVserver-2 HV Replication" -NotAfter "2031-12-31 23:59:59" -NotBefore "2021-05-23 00:00:00" -Signer $RootCert
+New-SelfSignedCertificate -DnsName "offsite-rep-host.ddns.net","offsite-rep-host.domain.local","offsite-rep-host" -CertStoreLocation Cert:\LocalMachine\My -KeyLength 4096 -Hash SHA256 -KeyFriendlyName "offsite-rep-host HV Replication" -FriendlyName "offsite-rep-host HV Replication" -NotAfter "2031-12-31 23:59:59" -NotBefore "2021-05-23 00:00:00" -Signer $RootCert
+# Export all of the certs
+$Password = Read-Host "Enter a Password for the PFX Private Key" -AsSecureString
+$HostCert = ( Get-ChildItem Cert:\LocalMachine\My | Where -Prop Subject -eq "CN=office-HVserver-1.domain.tld" )
+Export-PfxCertificate -FilePath C:\users\yourloginonHVoffsiteserver\downloads\office-HVserver-1.pfx -Cert $HostCert -ChainOption BuildChain -Password $Password
+$HostCert = ( Get-ChildItem Cert:\LocalMachine\My | Where -Prop Subject -eq "CN=office-HVserver-2.domain.tld" )
+Export-PfxCertificate -FilePath C:\users\yourloginonHVoffsiteserver\downloads\office-HVserver-2.pfx -Cert $HostCert -ChainOption BuildChain -Password $Password
+$HostCert = ( Get-ChildItem Cert:\LocalMachine\My | Where -Prop Subject -eq "CN=offsite-rep-host.ddns.net" )
+Export-PfxCertificate -FilePath C:\users\yourloginonHVoffsiteserver\downloads\offsite-rep-host.pfx -Cert $HostCert -ChainOption BuildChain -Password $Password
+$HostCert = ( Get-ChildItem Cert:\LocalMachine\Root | Where -Prop Subject -eq "CN=HV Replica Root CA" )
+Export-PfxCertificate -FilePath C:\users\yourloginonHVoffsiteserver\downloads\HVreplicaroot.pfx -Cert $HostCert -ChainOption BuildChain -Password $Password
+# Disable certificate revocation checks
+Push-Location
+Set-Location "Registry::HKLM"
+Set-ItemProperty -Path "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\FailoverReplication" -Name DisableCertRevocationCheck -Value 1 -Type DWord
+Set-ItemProperty -Path "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Replication" -Name DisableCertRevocationCheck -Value 1 -Type DWord
+Pop-Location
+# Enable HV Replication Server, be sure to use a port that is not the common 443 port and open that port in the offsite network firewall to the offsite host. Also select a disk path that has ample free space for the VM replicas.
+$HostCert = ( Get-ChildItem Cert:\LocalMachine\My | Where -Prop Subject -eq "CN=offsite-rep-host.ddns.net" )
+Set-VMReplicationServer -AllowedAuthenticationType Certificate -CertificateAuthenticationPort not443 -CertificateThumbprint $HostCert.Thumbprint -DefaultStorageLocation "F:\replicas" -ReplicationAllowedFromAnyServer $True -ReplicationEnabled $True
+
+# Now, on each HV sending replicas to offsite.
+# Copy certs to both office HV, import. On server core, seperate import of the CA is necessary. Each HV sending replicas gets their own cert and the HV Replica Root CA.
+# Depending on the office network configuration, you may have to allow the office HV servers to use the same 'not443' port outbound. You may have to add a DNS CNAME record for offsite-rep-host.domain.tld Troubleshoot with the 'Test-VMReplicationConnection' cmdlet.
+$Password = Read-Host "Enter the Password for the PFX Private Key" -AsSecureString
+Import-PfxCertificate -FilePath C:\Certificates\office-HVserver-1.pfx -CertStoreLocation "Cert:\LocalMachine\My" -Password $Password
+$RootCert = ( Get-ChildItem Cert:\LocalMachine\My | Where -Prop Subject -eq "CN=HV Replica Root CA" )
+Push-Location
+Set-Location "Cert:\LocalMachine\My"
+Move-Item $RootCert.Thumbprint "Cert:\LocalMachine\Root"
+Pop-Location
+
+# Now at each office HV server, enable replication
+cd cert:\localmachine\my
+dir | FL
+# Manually copy Thumbrint data for the matching certificate to use with the following cmdlet.
+Enable-VMReplication -VMName <The VM name> -ReplicaServerName offsite-rep-host -AuthenticationType Certificate -CertificateThumbprint <long thumbprint> -ReplicaServerPort not443
+Start-VMInitialReplication -VMName <The VM name>
+# Adjust the replication frequency, if compression is used and more with the Set-VMReplication cmdlet
+```
