@@ -9,7 +9,7 @@ Links to get started...
 [How to Run Containers with Podman on CentOS 8 / RHEL 8](https://www.linuxtechi.com/run-containers-podman-centos-8-rhel-8/)
 
 1. Coding scripts to start containers is easier than all other options. For example, here is a simple shell script with the complete command line to start the container. `sudo podman run -it -d -p 8080:80 --name nginx -v /usr/share/nginx/html:/usr/share/nginx/html -v /home/me/default.conf:/etc/nginx/conf.d/default.conf -e TERM=xterm docker.io/library/nginx`
-2. Some containers will just crash because they need a configuration for SELinux. I am looking at you nginx! (An option for occasional bypass is to `sudo setenforce 0`. Research using udica to create the proper SELinux policy instead of bypassing)
+2. Some containers will just crash because they need a configuration for SELinux. I am looking at you nginx! An option for occasional bypass is to `sudo setenforce 0` but that is also reducing security. A better choice is to use podman built-in selinux capabilities and add :Z (relabling) or :z (sharing) the volume parameter `-v /var/data:/some-required-container-folder:Z`
 3. Copy container's configuration files as needed, so you can have a customized version of the file that persists after the container gets updated. `podman cp nginx:/etc/nginx/conf.d/default.conf default.conf`
 4. Enter a shell on the running container `sudo podman exec -it nginx bash`
 5. Running containers upon boot from systemd is realistic. See the workflows below...
