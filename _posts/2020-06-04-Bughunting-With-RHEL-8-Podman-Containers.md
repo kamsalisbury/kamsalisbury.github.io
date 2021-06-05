@@ -1,0 +1,17 @@
+In 2021, Redhat ended their support of resources for the CentOS program [and added a Redhat Enterprise Linux subscription benefit to their developers program](https://developers.redhat.com/articles/getting-red-hat-developer-subscription-what-rhel-users-need-know). That basically allows me to use RHEL VMs to test/break a ton of stuff and not have to use Windows Subsystem for Linux.
+
+On the RHEL platform, the podman utility is used to run containers without the complexity of a Kubernetes daemon service configuration. Even better, podman uses the same commands as Docker, so I don't "have to" install a Docker environment either. A since a linux container is basically designed to have just the necessary software for the intended use, the VM and the loaded container images stay super simple and fast.
+
+### If you have little to no experience with containers, here are some links to get up to speed quickly.
+[How To run Docker Containers using Podman and Libpod](https://www.osradar.com/how-to-run-docker-containers-using-podman-and-libpod/)
+
+[How to Run Containers with Podman on CentOS 8 / RHEL 8](https://www.linuxtechi.com/run-containers-podman-centos-8-rhel-8/)
+
+## My Notes
+1. First, create a folder for the container to store configuration files or program output `mkdir bugbountyscanner`
+2. Then, use a bash shell script or even just a plain text file with commands saved for reference to store the command line to start the container. For example, here is a simple bash shell command line to start a container. `sudo podman run -dt -v /home/yourlogin/bugbountyscanner:/home/targets/:z --name bugbountyscanner chvancooten/bugbountyscanner /bin/bash`
+If your host does not have the container image, it will automatically attempt to find and download the latest image for you. Podman can use containers from Redhat, Docker and even your own repository. After storing the container image, podman will start the container and show a unique container ID for reference. The command line `sudo podman ps` will report all running containers.
+4. Podman can run containers in detached and interactive modes. The commandline example I used in step 2 is detached mode. Use commandline `sudo podman attach bugbountyscanner` to enter the container's shell interactively. Use `ctrl+p ctrl+q` to detach from the container again. Podman can have multiple containers running in different modes and that comes in handy when using utilities with long running processes.
+4. Now, from the container interactive shell, use the commandline `./BugBountyScanner.sh -o /home/targets -d yourbountytarget.tld`. You can watch the container work, or detach from the container. The container will continue to process the long running comand.
+5. Since the command to run the container used the `:z` with the `-v` volume mount, the log file for the current process is viewable from the main host's command prompt `tail bugbountyscanner/BugBountyScanner-20210605-04\:34\:57.log`. The same folder will hold additional utility output files as well.
+6. After the logfile shows complete, stop the container `sudo podman stop bugbountyscanner`. All of the BugBountyScanner script output will still be saved in the /home/yourlogin/bugbountyscanner folder so you can review it.
