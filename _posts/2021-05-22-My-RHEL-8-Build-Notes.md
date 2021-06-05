@@ -1,9 +1,9 @@
-I use the CentOS Linux platform for the majority of my computing tasks. I am not against other Linux distributions. The target hardware is HyperV Server 2016 on Intel hardware, 4GB RAM.
-Update: Redhat has ended their support of resources for the CentOS program. CentOS will not receive updates after 2021. [Redhat has added a Redhat Enterprise Linux subscription benefit to their developers program](https://developers.redhat.com/articles/getting-red-hat-developer-subscription-what-rhel-users-need-know) which basically allows me to convert my few CentOS VMs to RHEL. I have updated these notes to reflect any RHEL specific changes.
+I use the Redhat Enterprise Linux platform for the majority of my linux computing tasks. I am not against other Linux distributions. The target install is a VM on hardware running HyperV Server 2019 on Intel hardware, 4GB RAM. It is just enough for what I usually need.
+[Redhat has added a Redhat Enterprise Linux subscription benefit to their developers program](https://developers.redhat.com/articles/getting-red-hat-developer-subscription-what-rhel-users-need-know) which basically allows me to run several RHEL VMs at zero subscription cost.
 
-HyperV specific VM settings: Secure Boot enabled, Microsoft UEFI Certificate authority. 4096MB RAM install and virtualization guest tools, then after reboot 2048 with dynamic RAM minimum 512MB. 2 vCPUs. All integration services. Checkpoints disabled.
+HyperV specific VM settings: Secure Boot enabled, Microsoft UEFI Certificate authority. 4096MB RAM install and virtualization guest tools, then after reboot 2048 with dynamic RAM minimum 512MB. 2 vCPUs. All integration services. Checkpoints disabled. Non-secure boot configuration will work as well.
 
-1. Minimal install, set hostname and static networking
+1. Minimal install, set hostname and static networking. Register during install or manually post install (next steps)
 2. Register this system `subscription-manager register` then `subscription-manager attach`
 3. Install core utilities `yum install nano wget cockpit rsyslog rsyslog-doc unzip podman buildah -y`
 4. Enable Cockpit (Compariable to Windows Admin Center) `systemctl enable --now cockpit.socket`
@@ -45,7 +45,7 @@ enabled = true
 12. Implement ssh key authentication and then install and configure [Duo](https://duo.com/docs/duounix) or [other 2FA](https://github.com/CERN-CERT/pam_2fa)
 13. See [my notes about running containers via podman.](https://kamsalisbury.github.io/My-CentOS-8-Podman-Container-Notes/)
 
-## Redhat Enterprise Linux KVM HV2019 Specific Notes
-1. HV2019 choose sata bus for disks or load non-WHQL signed virtio drivers, pick one
+## Redhat Enterprise Linux KVM Hosting HV2019 Specific Notes
+1. HV2019 KVM guest, choose sata bus for disks or load non-WHQL signed virtio drivers, pick one
 2. Add a dedicated NIC by adding a Direct Attachment NIC, e100e PCI. In REHL set the same NIC to shared
 3. When using USB storage, establish the storage pool first, then install to that pool
