@@ -1,5 +1,5 @@
-On the CentOS (and Redhat Enterprise) Linux platform, podman is the utility to run containers without the complexity of a Kubernetes daemon service configuration. Even better, podman uses the same commands as Docker, so I don't "have to" install a Docker environment.
-Update: Redhat has ended their support of resources for the CentOS program. CentOS will not receive updates after 2021. [Redhat has added a Redhat Enterprise Linux subscription benefit to their developers program](https://developers.redhat.com/articles/getting-red-hat-developer-subscription-what-rhel-users-need-know) which basically allows me to convert my few CentOS VMs to RHEL. I have updated these notes to reflect any RHEL specific changes.
+On Redhat Enterprise Linux platform, podman is the utility to run containers without the complexity of a Kubernetes daemon service configuration. Even better, podman uses the same commands as Docker, so I don't "have to" install a Docker environment.
+[Redhat has added a Redhat Enterprise Linux subscription benefit to their developers program](https://developers.redhat.com/articles/getting-red-hat-developer-subscription-what-rhel-users-need-know) which basically allows me to run RHEL VMs and containers on those VMs.
 
 Links to get started...
 [CHAPTER 4. RUNNING CONTAINERS AS SYSTEMD SERVICES WITH PODMAN](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/running_containers_as_systemd_services_with_podman)
@@ -9,14 +9,14 @@ Links to get started...
 [How to Run Containers with Podman on CentOS 8 / RHEL 8](https://www.linuxtechi.com/run-containers-podman-centos-8-rhel-8/)
 
 1. Coding scripts to start containers is easier than all other options. For example, here is a simple shell script with the complete command line to start the container. `sudo podman run -it -d -p 8080:80 --name nginx -v /usr/share/nginx/html:/usr/share/nginx/html -v /home/me/default.conf:/etc/nginx/conf.d/default.conf -e TERM=xterm docker.io/library/nginx`
-2. Some containers will just crash because they need a configuration for SELinux. I am looking at you nginx! An option for occasional bypass is to `sudo setenforce 0` but that is also reducing security. A better choice is to use podman built-in selinux capabilities and add :Z (relabling) or :z (sharing) the volume parameter `-v /var/data:/some-required-container-folder:Z`
+2. Some containers will just crash because they need a configuration for SELinux. I am looking at you nginx! An option for occasional bypass is to `sudo setenforce 0` but that is also reducing security. A better choice is to use podman built-in selinux capabilities and add :Z (relabling) or :z (sharing) to the volume parameter `-v /var/data:/some-required-container-folder:z`
 3. Copy container's configuration files as needed, so you can have a customized version of the file that persists after the container gets updated. `podman cp nginx:/etc/nginx/conf.d/default.conf default.conf`
 4. Enter a shell on the running container `sudo podman exec -it nginx bash`
 5. Running containers upon boot from systemd is realistic. See the workflows below...
 6. Containers not designed to provide an interactive shell session (single use or command) expect parameters passed to them like this. Notice no command to exec specified after the containerimage `sudo podman run -d --rm=true containerimage --parameter_one="value1" --parameter_two="value 2" --parameter_three="looongkey"`
 7. Quick check on running container `sudo podman logs containerId`
 
-## Workflow to run pihole as a container on CentOS 8
+## Workflow to run pihole as a container on RHEL 8
 ```
 # Create a podman volume to hold pihole configuration files
 sudo podman volume create pihole
