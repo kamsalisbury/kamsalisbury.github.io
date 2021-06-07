@@ -1,3 +1,0 @@
-This repository uses code from [https://github.com/kamsalisbury/bulma-now](https://github.com/kamsalisbury/bulma-now) by using work-a-rounds [https://deanmalone.net/post/how-to-fork-your-own-repo-on-github/](https://deanmalone.net/post/how-to-fork-your-own-repo-on-github/) and [https://github.community/t/how-to-deal-with-refusing-to-merge-unrelated-histories-error/1372](https://github.community/t/how-to-deal-with-refusing-to-merge-unrelated-histories-error/1372)
-
-This repository is [GitHub Pages](https://pages.github.com/) enabled and answers to custom domains [kamsalisbury.work](https://kamsalisbury.work) and [www.kamsalisbury.work](https://www.kamsalisbury.work)
