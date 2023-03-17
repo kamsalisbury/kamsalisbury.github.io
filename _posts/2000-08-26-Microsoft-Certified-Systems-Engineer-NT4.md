@@ -7,4 +7,4 @@ Microsoft Certified Systems Engineer: Windows NT 4.0
 Microsoft Certification ID 1443886
 Certification Number: A234-2334
 
-[]...more updated certifications](https://www.credly.com/users/kam-salisbury/badges)
+[...more updated certifications](https://www.credly.com/users/kam-salisbury/badges)
