@@ -23,6 +23,11 @@ a{
     color: #7A7C80;
     text-decoration: none;
 }
+
+img{
+    max-width:100%;
+    max-height:auto;
+}
 /* section 1 */
 .section-1{
     /* padding-top: 40vh; */
