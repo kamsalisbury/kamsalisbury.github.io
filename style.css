@@ -24,10 +24,6 @@ a{
     text-decoration: none;
 }
 
-img{
-    max-width:100%;
-    max-height:auto;
-}
 /* section 1 */
 .section-1{
     /* padding-top: 40vh; */
@@ -49,6 +45,12 @@ img{
     font-size: 1.5rem;
     padding: 10px;
 }
+
+.section-1 img{
+    max-width:80%;
+    max-height:auto;
+}
+
 /* section 2 */
 .section-2{
     padding-top: 10vh;
