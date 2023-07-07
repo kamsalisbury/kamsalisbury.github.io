@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+
+{% include head.html %}
+
+<body>
+	<header>
+		<a href="{{ site.url }}">{{ site.title }}</a> / {{ page.title }}
+	</header>
+
+	<main id="main" role="main">
+		{{ content }}
+	</main>
+
+	<footer class="footer" role="contentinfo">
+		<p>
+			© 2020 {{ site.author.name }} -  <a rel="license" href="#">License name</a>
+		</p>
+		<p>
+			<a href="{{ site.url }}/feed.xml">RSS Feed</a> / <a href="#">Github</a> / <a href="#">Feedback</a>
+		</p>
+	</footer>
+</body>
+
+</html>

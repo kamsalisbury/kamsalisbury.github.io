@@ -1,0 +1,61 @@
+site: Site title
+url: https://isti03.github.io/ultra-minimal-jekyll-blog
+title: Site title
+description: This is the site description
+
+author:
+  name: Author's name
+  email: Author's email
+  website: Author's website
+  github: Author's github
+
+# Change the settings up to this line
+
+permalink: pretty
+
+paginate: 10
+paginate_path: "page:num/"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      lang: "en"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+    
+  - scope:
+      path: "assets/images"
+    values:
+      image: true

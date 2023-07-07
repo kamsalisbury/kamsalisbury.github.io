@@ -1,4 +1,5 @@
+---
+layout: none
+---
 User-agent: *
-Allow: /
-
-Sitemap: https://kamsalisbury.us/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml
