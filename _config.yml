@@ -1,13 +1,13 @@
-site: Site title
-url: https://isti03.github.io/ultra-minimal-jekyll-blog
-title: Site title
-description: This is the site description
+site: KamSalisbury.us
+url: https://kamsalisbury.us
+title: Kam Salisbury
+description: Author, MBA, Cybersecurity and Sysadmin.
 
 author:
-  name: Author's name
-  email: Author's email
-  website: Author's website
-  github: Author's github
+  name: Kam Salisbury
+  email: abalone-armor.0o@icloud.com
+  website: https://kamsalisbury.us
+  github: https://github.com/kamsalisbury
 
 # Change the settings up to this line
 
