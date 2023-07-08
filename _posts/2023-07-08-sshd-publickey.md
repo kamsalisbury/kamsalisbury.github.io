@@ -2,9 +2,9 @@
 layout: post
 lang: en
 title: How To Detect Ssh Public Key Attempts  
-description: Public Key Authenitcation Indicators
+description: Public Key Authentication Indicators
 categories: Cybersecurity Ssh
-image: image-link #this appears on share cards in social media
+#image: image-link #this appears on share cards in social media
 ---
 
 It is universally accepted that configuring sshd to require publickey authentication, is more secure than a password alone.
@@ -37,12 +37,12 @@ Checking ```/etc/ssh/sshd_config``` I can see the default sshd logging level is 
 #LogLevel INFO
 ```
 
-I am surprized that ```LogLevel VERBOSE``` is required to log publickey login events.
+I am surprised that ```LogLevel VERBOSE``` is required to log publickey login events.
 
 ```
 Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on 0.0.0.0 port 22.
 Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on :: port 22.
-Jul  8 11:20:02 jump1 auth.info sshd[3510]: Connection from ###.###.###.### port 52268 on 192.168.200.2 port 22 rdomain ""
+Jul  8 11:20:02 jump1 auth.info sshd[3510]: Connection from ###.###.###.### port 52268 on ###.###.###.### port 22 rdomain ""
 Jul  8 11:20:03 jump1 auth.info sshd[3510]: Accepted key ED25519 SHA256:LoooooooongKey found at /home/kam/.ssh/authorized_keys:1
 Jul  8 11:20:03 jump1 auth.info sshd[3510]: Postponed publickey for kam from ###.###.###.### port 52268 ssh2 [preauth]
 Jul  8 11:20:03 jump1 auth.info sshd[3510]: Accepted key ED25519 SHA256:LoooooooongKey found at /home/kam/.ssh/authorized_keys:1
@@ -58,4 +58,5 @@ Got feedback? Connect with me on [Github](https://github.com/kamsalisbury) or [L
 
 ###### Notes
 1. Alpine linux 3.1x was used for this topic. Your linux distribution of choice may have different sshd and syslog configuration defaults.
-1. The example sshd configuration used for this topic purposely combines something the login account has (a publickey) with something the login account knows (a complex password). 
+1. The example sshd configuration used for this topic purposely combines something the login account has (a publickey) with something the login account knows (a complex password).
+1. This configuration requirement [has existed for a very long time](https://serverfault.com/questions/291763/is-it-possible-to-get-openssh-to-log-the-public-key-that-was-used-in-authenticat).
