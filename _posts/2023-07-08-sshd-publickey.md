@@ -57,6 +57,6 @@ Thanks for reading this.
 Got feedback? Connect with me on [Github](https://github.com/kamsalisbury) or [LinkedIn](https://www.linkedin.com/in/kam-reef-salisbury/).
 
 ###### Notes
-1. Alpine linux 3.1x was used for this topic. Your linux distribution of choice may have different sshd and syslog configuration defaults.
+1. Alpine linux 3.1x was used for this topic. Your linux distribution of choice may have different sshd and syslog configuration defaults. For example, rsyslog filtering ssh authentication to ```/var/log/auth.log```.
 1. The example sshd configuration used for this topic purposely combines something the login account has (a publickey) with something the login account knows (a complex password).
 1. This configuration requirement [has existed for a very long time](https://serverfault.com/questions/291763/is-it-possible-to-get-openssh-to-log-the-public-key-that-was-used-in-authenticat).
