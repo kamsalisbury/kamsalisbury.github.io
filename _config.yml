@@ -7,11 +7,7 @@ baseurl: ''
 
 markdown: GFM
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-highlighter: rouge
-
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+highlighter: pygments
 
 plugins:
   - jekyll-paginate
