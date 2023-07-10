@@ -17,8 +17,6 @@ kramdown:
 
 plugins:
   - jekyll-paginate
-paginate: 10
-paginate_path: /page-:num
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
