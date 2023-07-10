@@ -1,16 +1,19 @@
 ---
 layout: default
 ---
-<div class="title is-3">
-    {{ page.title }}
+<div class="block">
+    <div class="title is-3">
+        {{ page.title }}
+    </div>
+    <div class="subtitle is-5">
+        {{ page.shortUrl }}
+        {{ page.description }}
+    </div>
+    <span class="tag">
+        {{ page.categories }}
+    </span>
+    <div class='separator'></div>
+            
+    {{ content }}
+
 </div>
-<div class="subtitle is-5">
-    {{ page.shortUrl }}
-    {{ page.description }}
-</div>
-<span class="tag">
-    {{ page.categories }}
-  </span>
-<div class='separator'></div>
-        
-{{ content }}
