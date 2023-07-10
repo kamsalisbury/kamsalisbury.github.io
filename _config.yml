@@ -2,7 +2,7 @@ name: "KamSalisbury.US"
 title: "KamSalisbury.US"
 description: "Sysadmin, Cybersecurity, MBA and Author."
 
-url: '' 
+url: "https://kamsalisbury.us" # the base hostname & protocol for your site
 baseurl: ''
 
 markdown: kramdown
