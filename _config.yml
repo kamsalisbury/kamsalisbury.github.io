@@ -6,7 +6,6 @@ url: "https://kamsalisbury.us" # the base hostname & protocol for your site
 baseurl: ''
 
 markdown: kramdown
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: rouge
 
 kramdown:
@@ -21,4 +20,3 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - kramdown
-  
