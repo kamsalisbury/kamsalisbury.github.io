@@ -5,9 +5,15 @@ description: "Sysadmin, Cybersecurity, MBA and Author."
 url: '' 
 baseurl: ''
 
-markdown: kramdown-parser-gfm
+markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-highlighter: pygments
+highlighter: rouge
+
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+  auto_ids: true
+  toc_levels: 1..3
 
 plugins:
   - jekyll-paginate

@@ -4,5 +4,5 @@ gem 'jekyll-paginate'
 gem 'jekyll-feed'
 gem 'jekyll-seo-tag'
 gem 'jekyll-sitemap'
-gem 'kramdown-parser-gfm'
+gem 'kramdown'
 gemspec
