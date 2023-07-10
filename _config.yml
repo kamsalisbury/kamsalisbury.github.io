@@ -17,6 +17,7 @@ plugins:
 paginate: 10
 paginate_path: /page-:num
   - jekyll-feed
+  - jekyll-seo-tag
 
 #disqus-id: your-disqus-id
 
