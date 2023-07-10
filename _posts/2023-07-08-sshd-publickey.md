@@ -19,21 +19,19 @@ I have found that without specific sshd configuration, ssh publickey authenticat
 
 I configured my example linux system to require publickey and password authentication.
 
-{% highlight conf %}
 ```
 AuthenticationMethods publickey,password
 ```
-{% endhighlight %}
 
 On the example linux system, ```/var/log/messages``` syslog shows the ssh login password event, but the publickey event is missing.
 
-```console
+```
 Jul  8 09:29:43 host auth.info sshd[3170]: Accepted password for kam from ###.###.###.### port 51527 ssh2
 ```
 
 Checking ```/etc/ssh/sshd_config``` I can see the default sshd logging level is INFO.
 
-```conf
+```
 # Logging
 #SyslogFacility AUTH
 #LogLevel INFO
@@ -41,7 +39,7 @@ Checking ```/etc/ssh/sshd_config``` I can see the default sshd logging level is 
 
 I am surprised that ```LogLevel VERBOSE``` is required to log publickey login events.
 
-```console
+```
 Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on 0.0.0.0 port 22.
 Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on :: port 22.
 Jul  8 11:20:02 jump1 auth.info sshd[3510]: Connection from ###.###.###.### port 52268 on ###.###.###.### port 22 rdomain ""
