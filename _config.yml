@@ -13,10 +13,10 @@ kramdown:
   syntax_highlighter: rouge
 
 plugins:
-  - jekyll-feed
   - jekyll-paginate
-    paginate: 10
-    paginate_path: /page-:num
+paginate: 10
+paginate_path: /page-:num
+  - jekyll-feed
 
 #disqus-id: your-disqus-id
 
