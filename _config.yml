@@ -20,3 +20,5 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - kramdown
+
+paginate: 5
