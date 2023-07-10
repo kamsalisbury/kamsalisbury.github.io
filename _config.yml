@@ -5,9 +5,10 @@ description: "Sysadmin, Cybersecurity, MBA and Author."
 url: "https://kamsalisbury.us" # the base hostname & protocol for your site
 baseurl: ''
 
-markdown: GFM
-highlighter: rogue
-
+kramdown:
+  input: Kramdown
+  syntax_highlighter: coderay
+  
 plugins:
   - jekyll-paginate
   - jekyll-sitemap

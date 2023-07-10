@@ -9,4 +9,5 @@ group :jekyll_plugins do
     gem "jekyll-gist"
     gem "jekyll-feed"
     gem "jekyll-seo-tag"
+    gem "kramdown-syntax-coderay"
   end
