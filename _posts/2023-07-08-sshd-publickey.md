@@ -20,13 +20,13 @@ I have found that without specific sshd configuration, ssh publickey authenticat
 I configured my example linux system to require publickey and password authentication.
 
 ```
-AuthenticationMethods publickey,password
+    AuthenticationMethods publickey,password
 ```
 
 On the example linux system, ```/var/log/messages``` syslog shows the ssh login password event, but the publickey event is missing.
 
 ```
-Jul  8 09:29:43 host auth.info sshd[3170]: Accepted password for kam from ###.###.###.### port 51527 ssh2
+    Jul  8 09:29:43 host auth.info sshd[3170]: Accepted password for kam from ###.###.###.### port 51527 ssh2
 ```
 
 Checking ```/etc/ssh/sshd_config``` I can see the default sshd logging level is INFO.
@@ -40,16 +40,16 @@ Checking ```/etc/ssh/sshd_config``` I can see the default sshd logging level is 
 I am surprised that ```LogLevel VERBOSE``` is required to log publickey login events.
 
 ```
-Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on 0.0.0.0 port 22.
-Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on :: port 22.
-Jul  8 11:20:02 jump1 auth.info sshd[3510]: Connection from ###.###.###.### port 52268 on ###.###.###.### port 22 rdomain ""
-Jul  8 11:20:03 jump1 auth.info sshd[3510]: Accepted key ED25519 SHA256:LoooooooongKey found at /home/kam/.ssh/authorized_keys:1
-Jul  8 11:20:03 jump1 auth.info sshd[3510]: Postponed publickey for kam from ###.###.###.### port 52268 ssh2 [preauth]
-Jul  8 11:20:03 jump1 auth.info sshd[3510]: Accepted key ED25519 SHA256:LoooooooongKey found at /home/kam/.ssh/authorized_keys:1
-Jul  8 11:20:03 jump1 auth.info sshd[3510]: Partial publickey for kam from ###.###.###.### port 52268 ssh2: ED25519 SHA256:LoooooooongKey
-Jul  8 11:20:19 jump1 auth.info sshd[3510]: Accepted password for kam from ###.###.###.### port 52268 ssh2
-Jul  8 11:20:19 jump1 auth.info sshd[3510]: User child is on pid 3512
-Jul  8 11:20:19 jump1 auth.info sshd[3512]: Starting session: shell on pts/1 for kam from ###.###.###.### port 52268 id 0
+    Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on 0.0.0.0 port 22.
+    Jul  8 11:19:36 jump1 auth.info sshd[3502]: Server listening on :: port 22.
+    Jul  8 11:20:02 jump1 auth.info sshd[3510]: Connection from ###.###.###.### port 52268 on ###.###.###.### port 22 rdomain ""
+    Jul  8 11:20:03 jump1 auth.info sshd[3510]: Accepted key ED25519 SHA256:LoooooooongKey found at /home/kam/.ssh/authorized_keys:1
+    Jul  8 11:20:03 jump1 auth.info sshd[3510]: Postponed publickey for kam from ###.###.###.### port 52268 ssh2 [preauth]
+    Jul  8 11:20:03 jump1 auth.info sshd[3510]: Accepted key ED25519 SHA256:LoooooooongKey found at /home/kam/.ssh/authorized_keys:1
+    Jul  8 11:20:03 jump1 auth.info sshd[3510]: Partial publickey for kam from ###.###.###.### port 52268 ssh2: ED25519 SHA256:LoooooooongKey
+    Jul  8 11:20:19 jump1 auth.info sshd[3510]: Accepted password for kam from ###.###.###.### port 52268 ssh2
+    Jul  8 11:20:19 jump1 auth.info sshd[3510]: User child is on pid 3512
+    Jul  8 11:20:19 jump1 auth.info sshd[3512]: Starting session: shell on pts/1 for kam from ###.###.###.### port 52268 id 0
 ```
 
 Thanks for reading this.
