@@ -19,16 +19,12 @@ plugins:
   - jekyll-paginate
 paginate: 10
 paginate_path: /page-:num
-  - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-seo-tag
   - jekyll-sitemap
-  - kramdown-parser-gfm
+  - kramdown
 
 #disqus-id: your-disqus-id
 
 source: .
 destination: ./_site
-
-sass:
-    style: :compressed
-    sass_dir: assets/css/
