@@ -19,9 +19,11 @@ I have found that without specific sshd configuration, ssh publickey authenticat
 
 I configured my example linux system to require publickey and password authentication.
 
-```conf
+{% highlight conf %}
+```
 AuthenticationMethods publickey,password
 ```
+{% endhighlight %}
 
 On the example linux system, ```/var/log/messages``` syslog shows the ssh login password event, but the publickey event is missing.
 
