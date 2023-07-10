@@ -1,1 +1,10 @@
 _site
+.sass-cache
+.jekyll-metadata
+Gemfile
+Gemfile.lock
+.idea
+_drafts
+vendor
+node_modules
+blog

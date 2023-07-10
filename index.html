@@ -1,26 +1,28 @@
 ---
-layout: default
+layout: template
+paginate: true
 ---
 
-{% for post in paginator.posts %}
-<section>
-  <h2>
-    <a href='{{ site.url }}{{ post.url }}' title='{{ post.title }}'>
-      {{ post.title }}
-    </a>
-  </h2>
-  
-  <p>{{ post.excerpt | strip_html | truncate: 250 }}</p>
-</section>       
+
+{% for post in site.posts %}
+<div class="card mb-4">
+    <!--<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">-->
+    <div class="card-body">
+        <h2 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="card-text"> 
+            {{ post.excerpt | strip_html | strip_newlines | truncate: 165, '...' }}
+        </p>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="btn btn-primary read-more">Read More &rarr;</a>
+    </div>
+    <div class="card-footer text-muted">
+        Posted on {{ post.date | date: "%B %e, %Y" }}
+    </div>
+</div>
 {% endfor %}
 
-{% if paginator.previous_page %}
-<a href='{{ site.url }}{{ paginator.previous_page_path }}'>Previous</a>
-{% endif %}
 
-&mdash; {{ paginator.page }} of {{ paginator.total_pages }} &mdash;
-
-{% if paginator.next_page %}
-<a href='{{ site.url }}{{ paginator.next_page_path }}'>Next</a>
-{% endif %}
-
+<!--&lt;!&ndash; Pagination &ndash;&gt;-->
+<!--<ul class="pagination justify-content-center mb-4">-->
+<!--<li class="page-item"><a class="page-link" href="#">&larr; Older</a></li>-->
+<!--<li class="page-item disabled"><a class="page-link" href="#">Newer &rarr;</a></li>-->
+<!--</ul>-->

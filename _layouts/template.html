@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ site.title }}: {% if page.title %}{{ page.title }} {%else %} {{ site.description }} {% endif %} </title>
+    {% include meta.html %}
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Montserrat" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/app.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml"
+    />
+</head>
+
+<body>
+    <div class="wrapper-masthead">
+        <div class="container">
+            <header class="masthead clearfix">
+                <a href="{{ site.baseurl }}/" class="site-avatar">
+                    <img src="{{ site.avatar }}" />
+                </a>
+
+                <div class="site-info">
+                    <h1 class="site-name">
+                        <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+                    </h1>
+                    <p class="site-description">{{ site.description }}</p>
+                </div>
+                <nav>
+                    {% for nav_item in site.nav %}
+                      <a href="{{ site.baseurl }}{{ nav_item[1] }}" class="{% if page.nav_item == nav_item[0] %} active{% endif %}">{{ nav_item[0] }}</a>
+                    {% endfor %}
+                </nav>
+                
+            </header>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <br/> {{ content | markdownify}}
+            </div>
+            <div class="col-md-4">
+                <div class="card my-4">
+                    <div class="card-body">
+                        <form action="{{site.baseurl}}/search/" method="get">
+                            <label for="search-box">Search</label>
+                            <input type="text" id="search-box" name="query">
+                            <input type="submit" value="search">
+                        </form>
+                    </div>
+                </div>
+                <div class="card my-4">
+                    <h5 class="card-header">Recent posts</h5>
+                    <div class="card-body">
+                        <ul class="recent-posts-list">
+                            {% assign counter = '0' %} {% for post in site.posts %} {% if counter
+                            < '9' %} {% capture counter %}{{ counter | plus: '1' }}{% endcapture %} 
+                                <li style="color:orange">
+                                 <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+                                </li>
+                                {% endif %} {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="card my-4">
+                    <h5 class="card-header">Join to get notified about new posts, freebies and other cool stuff</h5>
+                    <div class="card-body">
+
+                        {% include mailinglist.html %}
+                    </div>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">Tags</h5>
+                    <div class="card-body">
+                        <ul class="skills nav">
+
+                            {% for tag in page.tags %}
+                            <li>
+                                <a href="{{ site.baseurl }}/tags?t={{ tag | slugify }}"> {{ tag }} </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Side Widget -->
+                <div class="card my-4">
+                    <div class="card-body">
+                        {% include svg-icons.html %}
+                    </div>
+                </div>
+
+                <div class="card my-4">
+                    <div class="card-body">
+                        Browse latest latest themes for your next project
+                        <a href="https://themeforest.net/?ref=amdtllc">
+                            <img src="{{site.baseurl}}/assets/images/codecanyon-light-background.png" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <footer class="py-5 bg-light">
+        <div class="container">
+            <p class="m-0 text-center text-white">
+                {% include svg-icons.html %}
+            </p>
+        </div>
+    </footer>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="{{site.baseurl}}/assets/js/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script> {% include analytics.html %}
+    -->
+</body>
+
+</html>

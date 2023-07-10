@@ -1,18 +1,26 @@
 ---
-layout: default
+layout: template
 ---
-    <section class="m-2">
-        <div class="title is-3">
-            {{ page.title }}
-        </div>
-        <div class="subtitle is-5">
-            {{ page.shortUrl }}
-            {{ page.description }}
-            {{ post.date }}
-        </div>
-        <span class="tag has-background-grey-light">
-            {{ page.categories }}
-        </span>
-        <div class='separator'></div>
+
+<article class="post">
+    <h2 class="title">
+        {{ page.title }}
+    </h2>
+
+    <div class="date">
+        Posted on {{ page.date | date: "%B %e, %Y" }} 
+       
+        [{% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags?t={{ tag | slugify }}"> {{ tag }} </a>
+        {% endfor %}]
+    </div>
+        
+
+    <br/>
+
+    <div class="entry">
         {{ content }}
-    </section>
+    </div>
+
+    {% include disqus.html %}
+</article>

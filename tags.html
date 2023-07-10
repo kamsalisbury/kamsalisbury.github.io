@@ -1,0 +1,26 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+{% capture tags %}
+  {% for tag in site.tags %}
+    {{ tag[0] }}
+  {% endfor %}
+{% endcapture %}
+{% assign sortedtags = tags | split:' ' | sort %}
+
+ 
+<div id="row">
+  {% for tag in sortedtags %}
+    <div class="col-sm-6 pull-left">
+      <strong id="{{ tag }}">{{ tag }}</strong>
+      <ul>
+      {% for post in site.tags[tag] %}
+        <li style="font-size:14px;"><a href="{{site.baseurl}}{{ post.url }}">{{ post.title | truncate: 50, '...' }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
