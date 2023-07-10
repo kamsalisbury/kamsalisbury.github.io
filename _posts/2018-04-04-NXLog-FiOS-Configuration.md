@@ -1,7 +1,5 @@
 ---
 layout: post
-title:  "Jekyll true minimal theme"
-date:   2018-01-01 23:22:40 +0300
 ---
 
 Log aggregators are an important part of cybersecurity management, compliance and monitoring. The powerful utility [NXLOG Community Edition](https://nxlog.co/products/nxlog-community-edition) is an excellent solution for receiving syslog messages from 1+ hosts and can even receive (and send) TCP SSL messages.
