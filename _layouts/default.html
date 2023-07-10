@@ -19,9 +19,14 @@
 </head>
 
 <body>
-    {% include header.html %}
     <section>
-        {{ content }}
+        {% include header.html %}
+    </section>
+    
+    <section>
+        <block>
+            {{ content }}
+        </block>
     </section>
 
 <hr>
