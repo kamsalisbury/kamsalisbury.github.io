@@ -6,7 +6,7 @@ url: "https://kamsalisbury.us" # the base hostname & protocol for your site
 baseurl: ''
 
 markdown: GFM
-highlighter: pygments
+highlighter: rogue
 
 plugins:
   - jekyll-paginate
