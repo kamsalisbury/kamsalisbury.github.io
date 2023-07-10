@@ -5,7 +5,7 @@ description: "Sysadmin, Cybersecurity, MBA and Author."
 url: '' 
 baseurl: ''
 
-markdown: kramdown
+markdown: kramdown-parser-gfm
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: pygments
 
@@ -16,6 +16,7 @@ paginate_path: /page-:num
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
+  - kramdown-parser-gfm
 
 #disqus-id: your-disqus-id
 
