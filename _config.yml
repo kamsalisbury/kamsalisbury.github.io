@@ -1,61 +1,27 @@
-site: KamSalisbury.us
-url: https://kamsalisbury.us
-title: Kam Salisbury
-description: Author, MBA, Cybersecurity and Sysadmin.
+title: no style, please! # name of the site
+author: Riccardo Graziosi # name of site's author
+email: riccardo.graziosi97@gmail.com # email of site's author
+url: https://riggraz.dev # root address of the site
+baseurl: "/no-style-please" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
+description: > # description of the site (multiple lines allowed)
+  A (nearly) no-CSS, fast, minimalist Jekyll theme.
 
-author:
-  name: Kam Salisbury
-  email: abalone-armor.0o@icloud.com
-  website: https://kamsalisbury.us
-  github: https://github.com/kamsalisbury
+permalink: /:slug.html
 
-# Change the settings up to this line
+favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
+# goat_counter: "yoursitename" # put your GoatCounter name if you want to use GoatCounter analytics
 
-permalink: pretty
+theme: no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
 
-paginate: 10
-paginate_path: "page:num/"
+theme_config:
+  appearance: "auto" # can be "light", "dark" or "auto"
+  back_home_text: ".." # customize text for homepage link in post layout
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: false # show blog description in home page
+
+sass:
+  style: :compressed
 
 plugins:
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-feed
-  - jekyll-relative-links
-
-relative_links:
-  enabled: true
-  collections: true
-
-collections:
-  pages:
-    output: true
-    permalink: /:name
-  posts:
-    output: true
-    permalink: /:categories/:title/
-
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
-      lang: "en"
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-    
-  - scope:
-      path: "assets/images"
-    values:
-      image: true
+  - jekyll-seo-tag

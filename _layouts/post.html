@@ -2,32 +2,14 @@
 layout: default
 ---
 
-<header>
-  <h1>{{ page.title }}</h1>
-  <time class="date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d." }}</time>
-</header>
+{%-include back_link.html-%}
 
-<article class="columns featured" role="article">
-  <div class="column is-7 post-img ">
-    <!-- <img src="https://cdn.emk.dev/templates/featured-image.png" alt=""> -->
-  </div>
-  <div class="column is-5 featured-content va">
-    <div>
-      <h1 class="title post-title">{{ page.title }}</h1>
-      <p class="post-excerpt">
-        <a href="https://www.amazon.com/gp/product/B07W8XW6K6/ref=dbs_a_def_rwt_bibl_vppi_i0">Amazon: PowerShell for IT
-          Helpdesk and Admins</a><br />
-        <a
-          href="https://books.apple.com/us/book/powershell-for-it-helpdesk-and-admins/id1573751396?itsct=books_box_link&itscg=30200&ls=1">Apple:
-          PowerShell for IT Helpdesk and Admins</a><br />
-        <a href="https://www.google.com/books/edition/PowerShell_for_IT_Helpdesk_and_Admins/MccyEAAAQBAJ?hl=en&gbpv=0">Google:
-          PowerShell for IT Helpdesk and Admins</a>
-      </p>
-      <!-- <h3 class="heading post-category">Category Name</h3>
-  <h1 class="title post-title">Blog Posts Template</h1>
-  <p class="post-excerpt">This template is based off of the official default blog template created by the fine folks over at <a href="https://ghost.io">Ghost</a>. If you are looking for a fully featured blog platform, I highly recommend checking them out!</p>
-  <br>
-  <a href="#" class="button is-primary">Read More</a> -->
-    </div>
-  </div>
+<article>
+  <p class="post-meta">
+    <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
+  </p>
+  
+  <h1>{{ page.title }}</h1>
+
+  {{ content }}
 </article>
