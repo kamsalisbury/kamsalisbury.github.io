@@ -21,8 +21,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - kramdown
-
-#disqus-id: your-disqus-id
-
-source: .
-destination: ./_site
+  
