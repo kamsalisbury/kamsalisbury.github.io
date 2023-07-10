@@ -15,6 +15,7 @@ paginate: 10
 paginate_path: /page-:num
   - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-sitemap
 
 #disqus-id: your-disqus-id
 
