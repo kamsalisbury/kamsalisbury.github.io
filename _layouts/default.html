@@ -6,37 +6,56 @@
 <body>
 
     <section>
-            <div class="container">
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div id="navbarBasicExample" class="navbar-menu">
-                        <div class="navbar-start">
-                            <a href="{{ site.url }}" class="navbar-item is-active">
-                                Home
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-                <div class="columns">
-                    <div class="column">
-                        <div class="columns is-vcentered">
-                            <div class="column">
-                                <figure class="image is-128x128">
-                                    <img src="29674098.jpg" />
-                                </figure>
-                            </div>
-                            <div class="column">
-                                <span class="tag is-dark is-large">Kam Salisbury</span>
-                            </div>
-                        </div>
-                        <h3>
-                            Sysadmin, MBA, Cybersecurity and Author.
-                        </h3>
-                    </div>
-                    <div class="column">
-                        @nbsp;
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a href="{{ site.url }}" class="navbar-item is-active">
+                            Home
+                        </a>
                     </div>
                 </div>
+            </nav>
+            <div class="columns">
+                <div class="column">
+                    <div class="columns is-vcentered">
+                        <div class="column">
+                            <figure class="image is-128x128">
+                                <img src="29674098.jpg" />
+                            </figure>
+                        </div>
+                        <div class="column">
+                            <span class="tag is-dark is-large">Kam Salisbury</span>
+                        </div>
+                    </div>
+                    <h3>
+                        Sysadmin, MBA, Cybersecurity and Author.
+                    </h3>
+                </div>
+                <div class="column">
+                    @nbsp;
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="columns">
+            <div class="column">
+                <container>
+                    <h1 class="post-title">Published non-affiliate links</h1>
+                    <p class="post-excerpt">
+                    <a href="https://www.amazon.com/gp/product/B07W8XW6K6/ref=dbs_a_def_rwt_bibl_vppi_i0">Amazon: PowerShell for IT Helpdesk and Admins</a><br />
+                    <a href="https://books.apple.com/us/book/powershell-for-it-helpdesk-and-admins/id1573751396?itsct=books_box_link&itscg=30200&ls=1">Apple: PowerShell for IT Helpdesk and Admins</a><br />
+                    <a href="https://www.google.com/books/edition/PowerShell_for_IT_Helpdesk_and_Admins/MccyEAAAQBAJ?hl=en&gbpv=0">Google: PowerShell for IT Helpdesk and Admins</a>
+                    </p>
+                </container>
+                <container>
+                    {{ content }}
+                </container>
+                &nbsp;
+            </div>
+        </div>
     </section>
 
     <section class="blog-posts">
@@ -66,7 +85,7 @@
     
                                 </div>
                             </article>
-                            {{ content }}
+                            
                         </div>
                     </div>
                 </div>
