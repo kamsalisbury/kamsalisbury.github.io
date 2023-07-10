@@ -17,8 +17,10 @@ plugins:
   - jekyll-paginate
 paginate: 10
 paginate_path: /page-:num
-  - jekyll-feed
   - jekyll-seo-tag
+
+gems:
+  - jekyll-feed
 
 #disqus-id: your-disqus-id
 
