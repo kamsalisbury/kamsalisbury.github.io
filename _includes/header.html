@@ -1,5 +1,33 @@
-<header>
-    <h1><a href='{{ site.url }}/'>{{ site.name }}</a></h1>
-</header>
-<a href='{{ site.url }}/'> Home</a> | <a href='{{ site.url }}/books/'>Books </a> | <a href='{{ site.url }}/archive/'> Archive</a> | <a href="https://www.credly.com/users/kam-salisbury" target="_blank"> Certifications</a>
-<hr>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href='{{ site.url }}/''>
+        <img src="{{ site.url }}/favicon.png" />
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href='{{ site.url }}/'>
+          Home
+        </a>
+  
+        <a class="navbar-item" href='{{ site.url }}/books/'>
+          Books
+        </a>
+
+        <a class="navbar-item" href='{{ site.url }}/archive/'>
+            Archive
+        </a>
+
+        <a class="navbar-item" href="https://www.credly.com/users/kam-salisbury" target="_blank">
+            Certs
+        </a>
+    </div>
+</nav>
+<hr />
