@@ -5,7 +5,7 @@ description: "Sysadmin, Cybersecurity, MBA and Author."
 url: '' 
 baseurl: ''
 
-markdown: GFM
+markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: pygments
 
