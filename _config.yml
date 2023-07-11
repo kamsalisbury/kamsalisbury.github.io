@@ -6,17 +6,17 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: My Site
-email: mysite@email.com
+title: KamSalisbury.US
+email: 29674098+kamsalisbury@users.noreply.github.com
 description: >- # this means to ignore newlines until "baseurl:"
-  My site is awesome.
+  Sysadmin, Cybersecurity, MBA and Author.
 baseurl: "" # the subpath of your site, e.g. /blog
 
-url: "https://mysite.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://kamsalisbury.us" # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_username:
 
-github_username:
+github_username: kamsalisbury
 
 disqus_shortname:
 
