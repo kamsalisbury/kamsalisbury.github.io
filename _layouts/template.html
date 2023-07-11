@@ -27,9 +27,8 @@
                     <p class="site-description">{{ site.description }}</p>
                 </div>
                 <nav>
-                    {% for nav_item in site.nav %}
-                      <a href="{{ site.baseurl }}{{ nav_item[1] }}" class="{% if page.nav_item == nav_item[0] %} active{% endif %}">{{ nav_item[0] }}</a>
-                    {% endfor %}
+                    <a href="{{ site.baseurl }}/books">Books</a>
+                    <a href="https://www.credly.com/users/kam-salisbury" target="_blank">Certs</a>
                 </nav>
                 
             </header>
