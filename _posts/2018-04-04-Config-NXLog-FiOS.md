@@ -1,8 +1,9 @@
 ---
 layout: post
+title: How To Configure NXLog to Receive Consumer FiOS Router Logs
 ---
 
-Log aggregators are an important part of cybersecurity management, compliance and monitoring. The powerful utility [NXLOG Community Edition](https://nxlog.co/products/nxlog-community-edition) is an excellent solution for receiving syslog messages from 1+ hosts and can even receive (and send) TCP SSL messages.
+Log aggregators are an important part of cybersecurity management, compliance and monitoring. The powerful utility [NXLOG Community Edition](https://nxlog.co/products/nxlog-community-edition) is an excellent solution for receiving syslog messages from 1+ hosts.
 
 While the NXLog documentation is well written, the exact configuration needed for a common FiOS router was not obvious.
 

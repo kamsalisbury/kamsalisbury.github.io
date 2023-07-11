@@ -1,10 +1,7 @@
 ---
 layout: post
-lang: en
 title: How To Detect Ssh Public Key Attempts  
 description: Without additional configuration, your SIEM is missing publikey login events
-categories: [Cybersecurity, Ssh]
-#image: image-link #this appears on share cards in social media
 ---
 
 It is universally accepted that configuring sshd to require publickey authentication is more secure than a password alone.
