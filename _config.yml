@@ -51,14 +51,13 @@ nav:
 footer-links:
   dribbble:
   email:
-  facebook: gatebe
+  facebook: 
   flickr:
-  github:
+  github: https://github.com/kamsalisbury
   instagram:
-  linkedin: link
+  linkedin: https://LinkedIn.com/in/kam-reef-salisbury
   pinterest:
-  rss:
-  twitter:
+  rss: https://kamsalisbury.us/feed.xml
   stackoverflow: # #e.g. users/2071357/jmuchiri
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
