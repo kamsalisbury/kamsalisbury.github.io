@@ -44,8 +44,8 @@ sass:
   style: :expanded # You might prefer to minify using :compressed
 
 nav:
-  blog: "/"
-  about: "/about"
+  books: "/books"
+  certs: "https://www.credly.com/users/kam-salisbury" target="_blank""
   tags: "/tags"
 
 footer-links:
