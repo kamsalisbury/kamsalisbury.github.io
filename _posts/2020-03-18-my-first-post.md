@@ -1,23 +1,15 @@
 ---
-title: "Tutorial I: my first post"
-date: 2020-03-18
+title: "Site Change Log"
+date: 2024-02-29
 layout: post
 ---
 
-This is **my very first post**!! I can write
+After a **totally unnecessary** amount of experimentation, this Portfolio is rebuilt with [Github Pages](https://pages.github.com).
 
-* unnumbered
-* fancy
-* lists
+Planned improvements:
 
-But also
+* Convert to Bulma, responsive first and unincumbered by javascript
+* Minimal design with just enough styling to function
+* Minimal code
 
-1. numbered
-1. ones
-1. easily
-
-Images
-
-![a gif!](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
-
-And so on...
+2024-02-29: Leaping into the initial rebuild. 
