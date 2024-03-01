@@ -6,4 +6,4 @@ layout: post
 
 A purposely simplified script to report port scans to [AbuseIPDB](https://www.abuseipdb.com/user/26499). Everything happens in RAM. No temp files to degrade flash memory. Tested on [GL.iNet](https://www.gl-inet.com/) Brume2.
 
-More details at the repository,[Arm Ash Portscan Reporting](https://github.com/kamsalisbury/OpenWRT-AbuseIPDB).
+More details at the repository, [Arm Ash Portscan Reporting](https://github.com/kamsalisbury/OpenWRT-AbuseIPDB).
