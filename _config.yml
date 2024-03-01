@@ -1,9 +1,9 @@
+# Site settings exposed via {{ site.variable }}
 title: Kamreef Salisbury
 description: Portfolio
 author: "Kamreef Salisbury"
-
+#email: "stop putting emails in pages for bots to scrape"
 theme: minima
-
 base_url: /
 repository: kamsalisbury/kamsalisbury.github.io
 
