@@ -1,7 +1,7 @@
 ---
 permalink: /
 layout: home
-title: Portfolio
+title: Kamreef Salisbury
 list_title: Projects
 ---
 <!-- This space is viewed as the start of the body on the main landing page -->
@@ -11,4 +11,7 @@ list_title: Projects
     Over 20 years experience and <a href="https://www.credly.com/users/kam-salisbury/">industry certifications</a>. <br />
     Still passionate about computer technology and its potential to create positive impact in the world.
 </p>
-
+   <body>
+        <section class="section">
+            <div class="container is-fluid">
+  
