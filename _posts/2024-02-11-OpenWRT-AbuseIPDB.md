@@ -25,6 +25,6 @@ Create a shell script suitable for cron execution that parses log output for por
 
 ### Results
 
-<img src="images/OpenWRT-AbuseIPDB_Firewall-Config.png" alt="Example firewall log configuration" />
-<img src="images/OpenWRT-AbuseIPDB_Firewall-Log.png" alt="Example firewall log output" />
-<img src="images/OpenWRT-AbuseIPDB_Submitted.png" alt="Example AbueIPDB status showing reported IPs" />
+<img src="https://kamsalisbury.github.io/images/OpenWRT-AbuseIPDB_Firewall-Config.png" alt="Example firewall log configuration" />
+<img src="https://kamsalisbury.github.io/images/OpenWRT-AbuseIPDB_Firewall-Log.png" alt="Example firewall log output" />
+<img src="https://kamsalisbury.github.io/images/OpenWRT-AbuseIPDB_Submitted.png" alt="Example AbueIPDB status showing reported IPs" />
