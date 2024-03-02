@@ -10,7 +10,7 @@ repository: kamsalisbury/kamsalisbury.github.io
 # Minima social links
 github_username: kamsalisbury
 linkedin_username: kam-reef-salisbury
-rss: rss
+#rss: rss
 
 # Minima: show excerpts in the frontpage
 show_excerpts: true
