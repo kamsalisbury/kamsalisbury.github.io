@@ -1,7 +1,5 @@
 ---
-permalink: index.html
-layout: default
+permalink: /
+layout: home
 title: Portfolio
 ---
-
-<!-- -->
