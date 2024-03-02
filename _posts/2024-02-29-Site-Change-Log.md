@@ -1,5 +1,5 @@
 ---
-layout:
+layout: post
 title: "Site Change Log"
 date: 2024-02-29
 categories: Code Jekyll Bulma

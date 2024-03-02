@@ -1,5 +1,5 @@
 ---
-layout:
+layout: post
 title: "Book: PowerShell for IT Helpdesk and Admins"
 date: 2019-08-09
 categories: Code Book PowerShell

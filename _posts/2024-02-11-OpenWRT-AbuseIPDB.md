@@ -1,5 +1,5 @@
 ---
-layout:
+layout: post
 title: "OpenWRT-AbuseIPDB"
 date: 2024-02-11
 categories: Code Arm Shell
