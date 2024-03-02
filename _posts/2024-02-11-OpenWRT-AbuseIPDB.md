@@ -5,7 +5,20 @@ date: 2024-02-11
 categories: Code Arm Shell
 ---
 
-A purposely simplified script to report port scans to [AbuseIPDB](https://www.abuseipdb.com/user/26499). Everything happens in RAM. No temp files to degrade flash memory. Tested on [GL.iNet](https://www.gl-inet.com/) Brume2, an Arm processor Ash Shell based firewall.
+A purposely simplified script to report port scans to [AbuseIPDB](https://www.abuseipdb.com/user/26499).
+Emphasizing efficiency, everything happens in RAM.
+No temporary files to cause degraded flash storage.
+Tested on [GL.iNet](https://www.gl-inet.com/) Brume2, an Arm processor Ash Shell based firewall.
 
-More details at the repository, [OpenWRT-AbuseIPDB](https://github.com/kamsalisbury/OpenWRT-AbuseIPDB).
+Script source code and installtion instructions at the repository, [OpenWRT-AbuseIPDB](https://github.com/kamsalisbury/OpenWRT-AbuseIPDB).
 
+## The Problem To Solve
+
+
+### Contraints
+
+
+### Solution
+
+
+### Results
