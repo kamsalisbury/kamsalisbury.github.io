@@ -1,6 +1,6 @@
 # Site settings
 title:       Kamreef Salisbury
-#email:      stop clear text emails for bots to scrape
+#email:      stop inputting clear text emails for bots to scrape
 author:      Kamreef Salisbury
 description: "Portfolio"
 baseurl:     ""
