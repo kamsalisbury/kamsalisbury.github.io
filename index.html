@@ -6,7 +6,6 @@
         <title>About Kam Salisbury</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/3cf338d447.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     </head>
     <body>
         <section class="section">
@@ -14,8 +13,7 @@
                 <h1 class="title is-1">
                     Kam Salisbury
                 </h1>
-                <!-- <img src="29674098.jpg" height="200" width="200" /> -->
-                <img id="gravatar-image">
+                <img src="29674098.jpg" height="200" width="200" />
                 <h2 class="subtitle has-text-weight-semibold is-4">Enterprise Cloud Operations, Cybersecurity, Author</h2>
                 <p class="subtitle content pb-2">
                     Over 20 years experience and <a href="https://www.credly.com/users/kam-salisbury/">industry certifications</a>. <br />
@@ -23,11 +21,11 @@
                 </p>
                 <h2 class="title is-4">Projects</h2>
                 <p class="description">
-                    &bull; <a href="https://hub.docker.com/r/kamsalisburyit/alpine-thttpd">Docker thttpd webserver container, secure-efficent-fast</a>
+                    <!-- &bull; <a href="https://hub.docker.com/r/kamsalisburyit/alpine-thttpd">Docker thttpd webserver container, secure-efficent-fast</a>
                     <br />
                     &bull; <a href="https://github.com/kamsalisbury/OpenWRT-AbuseIPDB">Arm Ash Portscan Reporting</a> to <a href="https://www.abuseipdb.com/user/26499">AbuseIPDB</a>
                     <br />
-                    &bull; Book: <a href="https://github.com/kamsalisbury/ps">PowerShell for IT Helpdesk and Admins</a>
+                    &bull; Book: <a href="https://github.com/kamsalisbury/ps">PowerShell for IT Helpdesk and Admins</a> -->
                     <hr class="pb-2">
                     <span class="icon">
                     <a href="https://www.linkedin.com/in/kam-reef-salisbury"><i class="fab fa-linkedin"></i></a>
@@ -48,14 +46,4 @@
             </div>
         </section>
     </body>
-    <script>
-        document.addEventListener( 'DOMContentLoaded', () => {
-            // Step 1: Hash your email address using SHA-256.
-            const hashedEmail = CryptoJS.SHA256( 'kam.salisbury@icloud.com' );
-            // Step 2: Construct the Gravatar URL.
-            const gravatarUrl = `https://www.gravatar.com/avatar/${hashedEmail}`;
-            // Step 3: Set the image source to the Gravatar URL.
-            document.getElementById( 'gravatar-image' ).src = gravatarUrl;
-        } );
-    </script>
 </html>
