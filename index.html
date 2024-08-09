@@ -13,7 +13,8 @@
                 <h1 class="title is-1">
                     Kam Salisbury
                 </h1>
-                <img src="29674098.jpg" height="200" width="200" />
+                <!-- <img src="29674098.jpg" height="200" width="200" /> -->
+                <img id="gravatar-image">
                 <h2 class="subtitle has-text-weight-semibold is-4">Enterprise Cloud Operations, Cybersecurity, Author</h2>
                 <p class="subtitle content pb-2">
                     Over 20 years experience and <a href="https://www.credly.com/users/kam-salisbury/">industry certifications</a>. <br />
@@ -46,4 +47,15 @@
             </div>
         </section>
     </body>
+    <script>
+        document.addEventListener( 'DOMContentLoaded', () => {
+            // Step 1: Hash your email address using SHA-256.
+            const hashedEmail = CryptoJS.SHA256( 'kam.salisbury@icloud.com' );
+            // Step 2: Construct the Gravatar URL.
+            const gravatarUrl = `https://www.gravatar.com/avatar/${hashedEmail}`;
+            // Step 3: Set the image source to the Gravatar URL.
+            document.getElementById( 'gravatar-image' ).src = gravatarUrl;
+        } );
+    </script>
+    <a href="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js</a>
 </html>
